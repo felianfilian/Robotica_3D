@@ -7,17 +7,19 @@ public class PlayerController : MonoBehaviour
 
     public CharacterController charCon;
     
+    
     public float moveSpeed = 5f;
     public float jumpForce = 15f;
 
     private Vector3 moveDirection;
+    private Camera camera;
 
     private float gravityScale = 5f;
     
 
     void Start()
     {
-        
+        camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -39,5 +41,12 @@ public class PlayerController : MonoBehaviour
 
         //transform.position += moveDirection * Time.deltaTime * moveSpeed;
         charCon.Move(moveDirection * Time.deltaTime);
+
+        if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, camera.transform.rotation.eulerAngles.y, 0f);
+        }
+
+        
     }
 }
