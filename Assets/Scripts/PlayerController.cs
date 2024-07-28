@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController charCon;
     
     public float moveSpeed = 5f;
-    public float jumpForce = 25f;
+    public float jumpForce = 15f;
 
     private Vector3 moveDirection;
 
