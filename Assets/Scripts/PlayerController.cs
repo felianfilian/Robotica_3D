@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public CharacterController charCon;
     public GameObject playerModel;
+    public Animator animator;
     
     public float moveSpeed = 5f;
     public float jumpForce = 15f;
@@ -52,6 +53,6 @@ public class PlayerController : MonoBehaviour
             playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
         }
 
-        
+        animator.SetFloat("speed", Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.z));
     }
 }
