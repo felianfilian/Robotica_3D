@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.y = yStore;
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && charCon.isGrounded)
         {
             moveDirection.y = jumpForce;
         }
@@ -54,5 +54,6 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetFloat("speed", Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.z));
+        animator.SetBool("grounded", charCon.isGrounded);
     }
 }
