@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
 
     public CharacterController charCon;
     public GameObject playerModel;
@@ -17,7 +18,11 @@ public class PlayerController : MonoBehaviour
     private Camera camera;
 
     private float gravityScale = 5f;
-    
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
