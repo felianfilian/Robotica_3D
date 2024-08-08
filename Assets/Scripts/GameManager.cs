@@ -11,5 +11,8 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public void Respawn()
+    {
 
+    }
 }
