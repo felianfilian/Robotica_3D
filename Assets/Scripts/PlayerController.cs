@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed = 5f;
 
     private Vector3 moveDirection;
-    private Camera camera;
+    private new Camera camera;
 
     private float gravityScale = 5f;
 

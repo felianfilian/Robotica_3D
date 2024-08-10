@@ -31,10 +31,10 @@ public class GameManager : MonoBehaviour
     public IEnumerator RespawnCo()
     {
         PlayerController.instance.gameObject.SetActive(false);
-        UIController.instance.FadeToBlack();
+        UIController.instance.blackScreenOn = true;
         yield return new WaitForSeconds(respawnTime);
         PlayerController.instance.transform.position = respawnPosition;
-        UIController.instance.FadeFromBlack();
+        UIController.instance.blackScreenOn = false;
         PlayerController.instance.gameObject.SetActive(true);
     }
 }
