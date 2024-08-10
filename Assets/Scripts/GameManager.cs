@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         UIController.instance.blackScreenOn = true;
         yield return new WaitForSeconds(respawnTime);
         PlayerController.instance.transform.position = respawnPosition;
+        CameraController.instance.SetCameraPosition();
         UIController.instance.blackScreenOn = false;
         PlayerController.instance.gameObject.SetActive(true);
     }

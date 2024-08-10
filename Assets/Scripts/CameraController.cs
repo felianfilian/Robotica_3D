@@ -34,4 +34,9 @@ public class CameraController : MonoBehaviour
         Vector3 endPosition = target.position + offset;
         transform.position = Vector3.Lerp(transform.position, endPosition, 0.1f);
     }
+
+    public void SetCameraPosition()
+    {
+        transform.position = target.position + offset;
+    }
 }
