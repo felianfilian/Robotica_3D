@@ -31,8 +31,10 @@ public class GameManager : MonoBehaviour
     public IEnumerator RespawnCo()
     {
         PlayerController.instance.gameObject.SetActive(false);
+        UIController.instance.FadeToBlack();
         yield return new WaitForSeconds(respawnTime);
         PlayerController.instance.transform.position = respawnPosition;
+        UIController.instance.FadeFromBlack();
         PlayerController.instance.gameObject.SetActive(true);
     }
 }
