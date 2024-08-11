@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class CheckpointController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static CheckpointController instance;
+
+
+    private Checkpoint[] checkpoints;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        checkpoints = FindObjectsOfType<Checkpoint>();
+    }
+
+    public void DeactivateAllCheckpoints()
+    {
+        foreach (Checkpoint checkpoint in checkpoints)
+        {
+            checkpoint.DeactivateCheckpoint();
+        }
     }
 }

@@ -7,6 +7,11 @@ public class Checkpoint : MonoBehaviour
     public GameObject cpActive;
     public GameObject cpInactive;
 
+    private void Start()
+    {
+        DeactivateCheckpoint();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
@@ -18,6 +23,7 @@ public class Checkpoint : MonoBehaviour
 
     public void ActivateCheckpoint()
     {
+        CheckpointController.instance.DeactivateAllCheckpoints();
         cpActive.SetActive(true);
         cpInactive.SetActive(false);
     }
