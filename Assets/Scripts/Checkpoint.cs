@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private Transform myPosition;
+
+    private void Start()
     {
-        
+        myPosition.position = transform.position + new Vector3(0f, 0.2f, 0f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.CompareTag("Player"))
+        {
+            GameManager.instance.SetCheckpoint(myPosition);
+        }
     }
 }

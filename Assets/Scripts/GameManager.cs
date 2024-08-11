@@ -38,4 +38,9 @@ public class GameManager : MonoBehaviour
         UIController.instance.blackScreenOn = false;
         PlayerController.instance.gameObject.SetActive(true);
     }
+
+    public void SetCheckpoint(Transform checkpointPosition)
+    {
+        respawnPosition = checkpointPosition.position;
+    }
 }
