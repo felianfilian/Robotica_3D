@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
         PlayerController.instance.gameObject.SetActive(true);
     }
 
-    public void SetCheckpoint(Transform checkpointPosition)
+    public void SetCheckpoint(Vector3 checkpointPosition)
     {
-        respawnPosition = checkpointPosition.position;
+        respawnPosition = checkpointPosition + new Vector3(0f,0.2f,0f);
     }
 }
