@@ -6,14 +6,11 @@ public class Damager : MonoBehaviour
 {
     public int damage = 1;
 
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(other.gameObject.CompareTag("Player"))
+        {
+            HealthManager.instance.GetDamage(damage);
+        }
     }
 }
