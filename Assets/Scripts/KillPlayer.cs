@@ -9,6 +9,7 @@ public class KillPlayer : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             GameManager.instance.Respawn();
+            HealthManager.instance.FullHealth();
         }
     }
 }

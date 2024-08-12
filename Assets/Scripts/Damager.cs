@@ -11,6 +11,7 @@ public class Damager : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             HealthManager.instance.GetDamage(damage);
+            
         }
     }
 }

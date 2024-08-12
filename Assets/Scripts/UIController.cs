@@ -46,6 +46,7 @@ public class UIController : MonoBehaviour
 
     public void UpdateUI()
     {
+        Debug.Log(HealthManager.instance.currentHealth);
         txtHealth.text = HealthManager.instance.currentHealth.ToString();
     }
 
