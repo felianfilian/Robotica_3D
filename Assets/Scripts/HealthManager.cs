@@ -16,20 +16,34 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
-        UIController.instance.UpdateUI();
+        FullHealth();      
     }
 
 
     public void GetDamage(int amount)
     {
         currentHealth -= amount;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            GameManager.instance.Respawn();
+        }
         UIController.instance.UpdateUI();
     }
 
     public void GetHealth(int amount)
     {
         currentHealth += amount;
+        if (currentHealth > maxHealth) 
+        { 
+            currentHealth = maxHealth;
+        }
+        UIController.instance.UpdateUI();
+    }
+
+    public void FullHealth()
+    {
+        currentHealth = maxHealth;
         UIController.instance.UpdateUI();
     }
 }
