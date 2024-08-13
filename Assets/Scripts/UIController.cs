@@ -49,19 +49,20 @@ public class UIController : MonoBehaviour
     {
         int currentHealth = HealthManager.instance.currentHealth;
         txtHealth.text = currentHealth.ToString();
-        UpdateHealthImg(2);
+        UpdateHealthImg(currentHealth-1);
     }
 
     public void UpdateHealthImg(int index)
     {
-        if(index > imgHealth.Length)
+        if(index >= imgHealth.Length)
         {
-            imgHealthHolder.sprite = imgHealth[imgHealth.Length -1];
-        } else
+            index = imgHealth.Length - 1;
+        } else if(index <= 0)
         {
-            imgHealthHolder.sprite = imgHealth[index];
+            index = 0;
         }
-        
+        imgHealthHolder.sprite = imgHealth[index];
+
     }
 
 
