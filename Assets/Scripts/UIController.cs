@@ -9,8 +9,9 @@ public class UIController : MonoBehaviour
     public static UIController instance;
 
     public TMP_Text txtHealth;
-
     public Image blackScreen;
+    public Image imgHealthHolder;
+    public Sprite[] imgHealth;
     public bool blackScreenOn = false;
   
 
@@ -46,8 +47,21 @@ public class UIController : MonoBehaviour
 
     public void UpdateUI()
     {
-        Debug.Log(HealthManager.instance.currentHealth);
-        txtHealth.text = HealthManager.instance.currentHealth.ToString();
+        int currentHealth = HealthManager.instance.currentHealth;
+        txtHealth.text = currentHealth.ToString();
+        UpdateHealthImg(2);
+    }
+
+    public void UpdateHealthImg(int index)
+    {
+        if(index > imgHealth.Length)
+        {
+            imgHealthHolder.sprite = imgHealth[imgHealth.Length -1];
+        } else
+        {
+            imgHealthHolder.sprite = imgHealth[index];
+        }
+        
     }
 
 
