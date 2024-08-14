@@ -6,7 +6,7 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager instance;
 
-    public int maxHealth = 6;
+    public int maxHealth = 5;
     public int currentHealth;
 
     private void Awake()
