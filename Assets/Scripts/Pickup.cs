@@ -1,10 +1,11 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
     public enum PickupType { heart, coin }
+    public int amount = 1
     public PickupType type;
 
     private void OnTriggerEnter(Collider other)
@@ -15,16 +16,21 @@ public class Pickup : MonoBehaviour
             switch(type)
             {
                 case PickupType.heart:
-                    Debug.Log("HEAL");
+                    LifeUp(amount);
                     break;
                 case PickupType.coin:
-                    Debug.Log("COIN");
+                    CoinsUp(amount);
                     break;
             }
         }
     }
 
-    public void LifeUp()
+    public void LifeUp(int amount)
+    {
+        HealthManager.instance.GetHealth(amount);
+    }
+
+    public void CoinsUp(int amount)
     {
 
     }
