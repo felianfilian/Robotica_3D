@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public enum PickupType { heart, coin }
-    public int amount = 1
+    public int amount = 1;
     public PickupType type;
 
     private void OnTriggerEnter(Collider other)
@@ -32,7 +32,7 @@ public class Pickup : MonoBehaviour
 
     public void CoinsUp(int amount)
     {
-
+        GameManager.instance.coinCount += amount;
     }
     
 }

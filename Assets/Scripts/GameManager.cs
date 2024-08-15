@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public int coinCount;
+
     private Vector3 respawnPosition;
 
     private float respawnTime = 2f;
@@ -43,4 +45,5 @@ public class GameManager : MonoBehaviour
     {
         respawnPosition = checkpointPosition + new Vector3(0f,0.2f,0f);
     }
+
 }
