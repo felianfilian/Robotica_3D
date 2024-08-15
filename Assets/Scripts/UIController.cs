@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
     public static UIController instance;
 
     public TMP_Text txtHealth;
+    public TMP_Text txtCoins;
     public Image blackScreen;
     public Image imgHealthHolder;
     public Sprite[] imgHealth;
@@ -50,6 +51,7 @@ public class UIController : MonoBehaviour
         int currentHealth = HealthManager.instance.currentHealth;
         txtHealth.text = currentHealth.ToString();
         UpdateHealthImg(currentHealth-1);
+        txtCoins.text = GameManager.instance.coinCount.ToString();
     }
 
     public void UpdateHealthImg(int index)

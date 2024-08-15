@@ -33,6 +33,7 @@ public class Pickup : MonoBehaviour
     public void CoinsUp(int amount)
     {
         GameManager.instance.coinCount += amount;
+        UIController.instance.UpdateUI();
     }
     
 }

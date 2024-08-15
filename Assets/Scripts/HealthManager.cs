@@ -26,7 +26,8 @@ public class HealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            GameManager.instance.Respawn();
+            Debug.Log("death");
+            //GameManager.instance.Respawn();
         }
         UIController.instance.UpdateUI();
     }
