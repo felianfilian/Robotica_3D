@@ -6,6 +6,8 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager instance;
 
+    public GameObject effectPlayerDeath;
+
     public int maxHealth = 5;
     public int currentHealth;
 
@@ -27,6 +29,7 @@ public class HealthManager : MonoBehaviour
         {
             currentHealth = 0;
             Debug.Log("death");
+            Instantiate(effectPlayerDeath,transform.position, Quaternion.identity);
             //GameManager.instance.Respawn();
         }
         UIController.instance.UpdateUI();

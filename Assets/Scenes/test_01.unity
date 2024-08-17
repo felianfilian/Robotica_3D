@@ -878,7 +878,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3ce87b03a619a444d9a3b8189f760554, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -971,12 +971,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936354025}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1912231146}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &999427316
 PrefabInstance:
@@ -1560,7 +1560,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 936354027}
   m_Father: {fileID: 1204973784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2005726087
@@ -5380,6 +5381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601dd4e26e3cdb544959ca7de7be0bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectPlayerDeath: {fileID: 8166008789452991293, guid: 7d6de22c383485e40a1b98102966c5bd, type: 3}
   maxHealth: 5
   currentHealth: 0
 --- !u!4 &8953096560113166082
@@ -5497,4 +5499,3 @@ SceneRoots:
   - {fileID: 2629503113477312043}
   - {fileID: 2181829911252411243}
   - {fileID: 1204973784}
-  - {fileID: 936354027}
