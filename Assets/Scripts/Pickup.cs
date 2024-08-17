@@ -17,31 +17,47 @@ public class Pickup : MonoBehaviour
             switch(type)
             {
                 case PickupType.heart:
-                    LifeUp(amount);
+                    if(HealthManager.instance.currentHealth >= HealthManager.instance.maxHealth)
+                    {
+                        break;
+                    } else
+                    {
+                        LifeUp(amount);
+                        
+                    }
+                    
                     break;
                 case PickupType.coin:
                     CoinsUp(amount);
+                    
                     break;
             
             }
 
-            if (pickupEffect != null)
-            {
-                Instantiate(pickupEffect, transform.position, Quaternion.identity);
-            }
-            Destroy(gameObject);
+            
+            
         }
     }
 
     public void LifeUp(int amount)
     {
         HealthManager.instance.GetHealth(amount);
+        Destroy(gameObject);
+        if (pickupEffect != null)
+        {
+            Instantiate(pickupEffect, transform.position, Quaternion.identity);
+        }
     }
 
     public void CoinsUp(int amount)
     {
         GameManager.instance.coinCount += amount;
         UIController.instance.UpdateUI();
+        Destroy(gameObject);
+        if (pickupEffect != null)
+        {
+            Instantiate(pickupEffect, transform.position, Quaternion.identity);
+        }
     }
-    
+
 }
