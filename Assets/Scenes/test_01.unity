@@ -2694,6 +2694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc8514023e733a44bf629f15399b698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 0}
   amount: 1
   type: 1
 --- !u!4 &2195567600879099235
@@ -4064,6 +4065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc8514023e733a44bf629f15399b698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 7342144468113061407, guid: b1234afb61b5e2440a30c9779097e90e, type: 3}
   amount: 1
   type: 0
 --- !u!1 &5704306493212921531

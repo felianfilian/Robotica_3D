@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public enum PickupType { heart, coin }
+    public GameObject pickupEffect;
     public int amount = 1;
     public PickupType type;
 
@@ -21,6 +22,12 @@ public class Pickup : MonoBehaviour
                 case PickupType.coin:
                     CoinsUp(amount);
                     break;
+            
+            }
+
+            if (pickupEffect != null)
+            {
+                Instantiate(pickupEffect, transform.position, Quaternion.identity);
             }
         }
     }
