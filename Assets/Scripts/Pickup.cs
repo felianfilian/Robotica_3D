@@ -29,13 +29,9 @@ public class Pickup : MonoBehaviour
                     break;
                 case PickupType.coin:
                     CoinsUp(amount);
-                    
                     break;
             
             }
-
-            
-            
         }
     }
 

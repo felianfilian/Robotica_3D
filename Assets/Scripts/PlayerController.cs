@@ -19,6 +19,13 @@ public class PlayerController : MonoBehaviour
 
     private float gravityScale = 5f;
 
+    // knockback
+    private bool isKnocking = false;
+    private float knockbackTime = 0.5f;
+    private float knockbackCounter;
+    private Vector2 knockbackPower;
+
+
     private void Awake()
     {
         instance = this;
@@ -65,5 +72,10 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("speed", Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.z));
         animator.SetBool("grounded", charCon.isGrounded);
+    }
+
+    public void KnockBack()
+    {
+        isKnocking = true;
     }
 }
