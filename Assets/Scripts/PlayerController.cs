@@ -77,5 +77,7 @@ public class PlayerController : MonoBehaviour
     public void KnockBack()
     {
         isKnocking = true;
+        knockbackCounter = knockbackTime;
+        Debug.Log("knock back");
     }
 }

@@ -31,6 +31,9 @@ public class HealthManager : MonoBehaviour
             Debug.Log("death");
             Instantiate(effectPlayerDeath,transform.position, Quaternion.identity);
             //GameManager.instance.Respawn();
+        } else
+        {
+            PlayerController.instance.KnockBack();
         }
         UIController.instance.UpdateUI();
     }
