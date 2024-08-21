@@ -39,7 +39,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (!isKnocking)
+        {
+            Move();
+        } else
+        {
+            knockbackCounter -= Time.deltaTime;
+            if(knockbackCounter <= 0 )
+            {
+                isKnocking = false;
+                knockbackCounter = knockbackTime;
+            }
+        }
         Animation();
         
     }
