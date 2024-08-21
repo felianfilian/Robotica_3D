@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool isKnocking = false;
     private float knockbackTime = 0.5f;
     private float knockbackCounter;
-    private Vector2 knockbackPower = new Vector2(3f, 0);
+    private Vector2 knockbackPower = new Vector2(3f, 8f);
 
 
     private void Awake()
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
             float yStore = moveDirection.y;
             moveDirection = playerModel.transform.forward * -knockbackPower.x;
             moveDirection.y = yStore;
+            moveDirection.y += Physics.gravity.y * Time.deltaTime * gravityScale;
             charCon.Move(moveDirection * Time.deltaTime);
 
             if (knockbackCounter <= 0 )
@@ -105,6 +106,6 @@ public class PlayerController : MonoBehaviour
         isKnocking = true;
         knockbackCounter = knockbackTime;
 
-        
+        moveDirection.y = knockbackPower.y;
     }
 }
