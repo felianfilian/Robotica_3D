@@ -39,6 +39,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+        Animation();
+        
+    }
+
+    public void Move()
+    {
         float yStore = moveDirection.y;
 
         //moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
@@ -48,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.y = yStore;
 
-        if(charCon.isGrounded)
+        if (charCon.isGrounded)
         {
             moveDirection.y = 0f;
             if (Input.GetButtonDown("Jump"))
@@ -56,20 +63,23 @@ public class PlayerController : MonoBehaviour
                 moveDirection.y = jumpForce;
             }
         }
-        
+
 
         moveDirection.y += Physics.gravity.y * Time.deltaTime * gravityScale;
 
         //transform.position += moveDirection * Time.deltaTime * moveSpeed;
         charCon.Move(moveDirection * Time.deltaTime);
 
-        if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
             transform.rotation = Quaternion.Euler(0f, camera.transform.rotation.eulerAngles.y, 0f);
             Quaternion newRotation = Quaternion.LookRotation(new Vector3(moveDirection.x, 0f, moveDirection.z));
             playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
         }
+    }
 
+    public void Animation()
+    {
         animator.SetFloat("speed", Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.z));
         animator.SetBool("grounded", charCon.isGrounded);
     }
