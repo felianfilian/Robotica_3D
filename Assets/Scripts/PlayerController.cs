@@ -46,11 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             knockbackCounter -= Time.deltaTime;
 
-            float yStore = moveDirection.y;
-            moveDirection = playerModel.transform.forward * -knockbackPower.x;
-            moveDirection.y = yStore;
-            moveDirection.y += Physics.gravity.y * Time.deltaTime * gravityScale;
-            charCon.Move(moveDirection * Time.deltaTime);
+            KnockbackMove();
 
             if (knockbackCounter <= 0 )
             {
@@ -107,5 +103,20 @@ public class PlayerController : MonoBehaviour
         knockbackCounter = knockbackTime;
 
         moveDirection.y = knockbackPower.y;
+    }
+
+   public void KnockbackMove()
+    {
+        float yStore = moveDirection.y;
+        moveDirection = playerModel.transform.forward * -knockbackPower.x;
+        moveDirection.y = yStore;
+
+        if (charCon.isGrounded)
+        {
+            moveDirection.y = 0f;
+        }
+
+        moveDirection.y += Physics.gravity.y * Time.deltaTime * gravityScale;
+        charCon.Move(moveDirection * Time.deltaTime);
     }
 }
