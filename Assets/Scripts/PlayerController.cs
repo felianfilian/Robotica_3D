@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     private float gravityScale = 5f;
 
     // knockback
-    private bool isKnocking = false;
+    [HideInInspector]
+    public bool isKnocking = false;
     private float knockbackTime = 0.5f;
     private float knockbackCounter;
     private Vector2 knockbackPower = new Vector2(3f, 8f);

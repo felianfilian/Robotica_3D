@@ -24,18 +24,21 @@ public class HealthManager : MonoBehaviour
 
     public void GetDamage(int amount)
     {
-        currentHealth -= amount;
-        if (currentHealth <= 0)
+        if (!PlayerController.instance.isKnocking)
         {
-            currentHealth = 0;
-            Debug.Log("death");
-            Instantiate(effectPlayerDeath,transform.position, Quaternion.identity);
-            //GameManager.instance.Respawn();
-        } else
-        {
-            PlayerController.instance.KnockBack();
+            currentHealth -= amount;
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                Instantiate(effectPlayerDeath, transform.position, Quaternion.identity);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                PlayerController.instance.KnockBack();
+            }
+            UIController.instance.UpdateUI();
         }
-        UIController.instance.UpdateUI();
     }
 
     public void GetHealth(int amount)
