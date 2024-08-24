@@ -11,6 +11,11 @@ public class HealthManager : MonoBehaviour
     public int maxHealth = 5;
     public int currentHealth;
 
+    //invincibility
+    private bool invincible = false;
+    private float invinceTime = 2f;
+    private float invinceCounter;
+
     private void Awake()
     {
         instance = this;
@@ -21,11 +26,23 @@ public class HealthManager : MonoBehaviour
         FullHealth();      
     }
 
+    private void Update()
+    {
+        if (invinceCounter > 0)
+        {
+            invinceCounter -= Time.deltaTime;
+        } else
+        {
+            invincible = false;
+            PlayerController.instance.playerModel.SetActive(true);
+        }
+    }
 
     public void GetDamage(int amount)
     {
-        if (!PlayerController.instance.isKnocking)
+        if (!invincible)
         {
+            invincible = true;
             currentHealth -= amount;
             if (currentHealth <= 0)
             {
@@ -36,6 +53,8 @@ public class HealthManager : MonoBehaviour
             else
             {
                 PlayerController.instance.KnockBack();
+                invinceCounter = invinceTime;
+                PlayerController.instance.playerModel.SetActive(false);
             }
             UIController.instance.UpdateUI();
         }

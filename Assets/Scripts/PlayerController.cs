@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public CharacterController charCon;
     public GameObject playerModel;
+    
     public Animator animator;
     
     public float moveSpeed = 5f;
