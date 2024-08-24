@@ -34,7 +34,10 @@ public class HealthManager : MonoBehaviour
         } else
         {
             invincible = false;
-            PlayerController.instance.playerModel.SetActive(true);
+            foreach (GameObject piece in PlayerController.instance.playerPieces)
+            {
+                piece.SetActive(true);
+            }
         }
     }
 
@@ -54,7 +57,11 @@ public class HealthManager : MonoBehaviour
             {
                 PlayerController.instance.KnockBack();
                 invinceCounter = invinceTime;
-                PlayerController.instance.playerModel.SetActive(false);
+                
+                foreach(GameObject piece in PlayerController.instance.playerPieces)
+                {
+                    piece.SetActive(false);
+                }
             }
             UIController.instance.UpdateUI();
         }
