@@ -31,12 +31,23 @@ public class HealthManager : MonoBehaviour
         if (invinceCounter > 0)
         {
             invinceCounter -= Time.deltaTime;
+
+            foreach (GameObject piece in PlayerController.instance.playerPieces)
+            {
+                if (Mathf.Floor(invinceCounter * 5f) % 2 == 0)
+                {
+                    piece.SetActive(true);
+                } else
+                {
+                    piece.SetActive(false);
+                }
+            }
         } else
         {
             invincible = false;
             foreach (GameObject piece in PlayerController.instance.playerPieces)
             {
-                piece.SetActive(true);
+                    piece.SetActive(true);  
             }
         }
     }
@@ -57,11 +68,6 @@ public class HealthManager : MonoBehaviour
             {
                 PlayerController.instance.KnockBack();
                 invinceCounter = invinceTime;
-                
-                foreach(GameObject piece in PlayerController.instance.playerPieces)
-                {
-                    piece.SetActive(false);
-                }
             }
             UIController.instance.UpdateUI();
         }
